@@ -1,3 +1,4 @@
+const path = require("path");
 const swaggerJSDoc = require("swagger-jsdoc");
 
 const options = {
@@ -13,8 +14,8 @@ const options = {
 
     servers: [
       {
-        url: "http://localhost:3000",
-        description: "Local development server",
+        url: "https://frengki.vercel.app",
+        description: "Production server",
       },
     ],
 
@@ -78,8 +79,7 @@ const options = {
     },
   },
 
-  // Swagger akan mencari komentar dokumentasi di semua file route
-  apis: ["./src/routes/*.js"],
+  apis: [path.join(__dirname, "../routes/*.js")],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

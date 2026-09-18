@@ -14,7 +14,11 @@ const options = {
 
     servers: [
       {
-        url: "https://frengki.vercel.app",
+        url: "http://localhost:3000",
+        description: "Local development server",
+      },
+      {
+        url: "https://todo-api-rach.vercel.app", // Sesuaikan dengan domain Vercel kamu saat ini
         description: "Production server",
       },
     ],
@@ -37,7 +41,6 @@ const options = {
       schemas: {
         Todo: {
           type: "object",
-
           properties: {
             _id: {
               type: "string",
@@ -79,7 +82,8 @@ const options = {
     },
   },
 
-  apis: [path.join(__dirname, "../routes/*.js")],
+  // Diubah menggunakan path.join dan __dirname agar aman di Vercel
+ apis: ["./src/routes/*.routes.js"],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

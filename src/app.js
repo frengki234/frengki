@@ -17,9 +17,14 @@ app.use(logger);
 app.use(cors());
 app.use(express.json());
 
-// Root endpoint
+// Root endpoints
 app.get("/", (req, res) => {
   res.json({ message: "Todo API is running" });
+});
+
+// Menangani GET /api dan GET /api/ agar tidak melempar error 404
+app.get("/api", (req, res) => {
+  res.json({ message: "Welcome to Todo API Service" });
 });
 
 // URL CDN untuk Aset Swagger (Mencegah Blank Page di Vercel)

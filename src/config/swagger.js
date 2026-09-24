@@ -13,7 +13,7 @@ const options = {
 
     servers: [
       {
-        url: "http://localhost:3000/api",
+        url: "https://frengki-80672jdno-frengki234.vercel.app/api",
         description: "Local development server",
       },
       {

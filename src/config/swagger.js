@@ -13,11 +13,11 @@ const options = {
 
     servers: [
       {
-        url: "https://frengki-80672jdno-frengki234.vercel.app/api",
+        url: "https://frengki-80672jdno-frengki234.vercel.app",
         description: "Local development server",
       },
       {
-        url: "https://todo-api-rach.vercel.app/api",
+        url: "https://todo-api-rach.vercel.app",
         description: "Production server",
       },
     ],

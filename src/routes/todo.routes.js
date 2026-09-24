@@ -9,12 +9,12 @@ const {
   getTodoByIdRules,
   getAllTodosRules,
 } = require("../validators/todo.validator");
- 
+
 router.use(protect);
- 
+
 /**
  * @swagger
- * /api/todos:
+ * /todos:
  *   post:
  *     summary: Membuat todo baru (wajib login)
  *     tags: [Todos]
@@ -52,10 +52,10 @@ router.use(protect);
  *         description: Belum login / token tidak valid
  */
 router.post("/", createTodoRules, validate, todoController.createTodo);
- 
+
 /**
  * @swagger
- * /api/todos:
+ * /todos:
  *   get:
  *     summary: Mengambil daftar todo milik user yang sedang login (dengan pagination)
  *     tags: [Todos]
@@ -117,10 +117,10 @@ router.post("/", createTodoRules, validate, todoController.createTodo);
  *         description: Belum login / token tidak valid
  */
 router.get("/", getAllTodosRules, validate, todoController.getAllTodos);
- 
+
 /**
  * @swagger
- * /api/todos/{id}:
+ * /todos/{id}:
  *   get:
  *     summary: Mengambil satu todo berdasarkan ID
  *     tags: [Todos]
@@ -155,10 +155,10 @@ router.get("/", getAllTodosRules, validate, todoController.getAllTodos);
  *         description: Todo tidak ditemukan
  */
 router.get("/:id", getTodoByIdRules, validate, todoController.getTodoById);
- 
+
 /**
  * @swagger
- * /api/todos/{id}:
+ * /todos/{id}:
  *   put:
  *     summary: Mengupdate todo berdasarkan ID
  *     tags: [Todos]
@@ -209,10 +209,10 @@ router.get("/:id", getTodoByIdRules, validate, todoController.getTodoById);
  *         description: Todo tidak ditemukan
  */
 router.put("/:id", updateTodoRules, validate, todoController.updateTodo);
- 
+
 /**
  * @swagger
- * /api/todos/{id}:
+ * /todos/{id}:
  *   delete:
  *     summary: Menghapus todo berdasarkan ID
  *     tags: [Todos]
@@ -247,5 +247,5 @@ router.put("/:id", updateTodoRules, validate, todoController.updateTodo);
  *         description: Todo tidak ditemukan
  */
 router.delete("/:id", getTodoByIdRules, validate, todoController.deleteTodo);
- 
+
 module.exports = router;

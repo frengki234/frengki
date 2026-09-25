@@ -14,7 +14,7 @@ router.use(protect);
 
 /**
  * @swagger
- * /todos:
+ * /api/todos:
  *   post:
  *     summary: Membuat todo baru (wajib login)
  *     tags: [Todos]
@@ -55,7 +55,7 @@ router.post("/", createTodoRules, validate, todoController.createTodo);
 
 /**
  * @swagger
- * /todos:
+ * /api/todos:
  *   get:
  *     summary: Mengambil daftar todo milik user yang sedang login (dengan pagination)
  *     tags: [Todos]
@@ -120,7 +120,7 @@ router.get("/", getAllTodosRules, validate, todoController.getAllTodos);
 
 /**
  * @swagger
- * /todos/{id}:
+ * /api/todos/{id}:
  *   get:
  *     summary: Mengambil satu todo berdasarkan ID
  *     tags: [Todos]
@@ -158,7 +158,7 @@ router.get("/:id", getTodoByIdRules, validate, todoController.getTodoById);
 
 /**
  * @swagger
- * /todos/{id}:
+ * /api/todos/{id}:
  *   put:
  *     summary: Mengupdate todo berdasarkan ID
  *     tags: [Todos]
@@ -212,7 +212,7 @@ router.put("/:id", updateTodoRules, validate, todoController.updateTodo);
 
 /**
  * @swagger
- * /todos/{id}:
+ * /api/todos/{id}:
  *   delete:
  *     summary: Menghapus todo berdasarkan ID
  *     tags: [Todos]

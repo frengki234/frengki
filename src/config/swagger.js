@@ -11,16 +11,16 @@ const options = {
         "Dokumentasi API Todo List — dibangun bertahap dari seri artikel backend Node.js",
     },
 
-    servers: [
-      {
-        url: "https://frengki-80672jdno-frengki234.vercel.app",
-        description: "Local development server",
-      },
-      {
-        url: "https://todo-api-rach.vercel.app",
-        description: "Production server",
-      },
-    ],
+   servers: [
+  {
+    url: "http://localhost:3000",
+    description: "Local development server",
+  },
+  {
+    url: "https://todo-api-rach.vercel.app",
+    description: "Production server",
+  },
+],
 
     components: {
       securitySchemes: {

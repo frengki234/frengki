@@ -11,16 +11,17 @@ const options = {
         "Dokumentasi API Todo List — dibangun bertahap dari seri artikel backend Node.js",
     },
 
-   servers: [
-  {
-    url: "http://localhost:3000",
-    description: "Local development server",
-  },
-  {
-    url: "https://todo-api-rach.vercel.app",
-    description: "Production server",
-  },
-],
+    // PERBAIKAN: Urutan dibalik, URL Vercel ditaruh paling atas agar jadi default
+    servers: [
+      {
+        url: "https://frengki.vercel.app",
+        description: "Production Server (Vercel)",
+      },
+      {
+        url: "http://localhost:3000",
+        description: "Local development server",
+      },
+    ],
 
     components: {
       securitySchemes: {
@@ -106,8 +107,7 @@ const options = {
     },
   },
 
-  // Membaca semua file di folder routes dari root proyek
-  apis: ["./src/routes/*.routes.js", "./src/routes/*.js"],
+  apis: ["./src/routes/*.routes.js", "./src/routes/*.js", "./routes/*.js"],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

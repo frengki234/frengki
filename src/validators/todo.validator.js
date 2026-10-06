@@ -13,6 +13,11 @@ const createTodoRules = [
     .trim()
     .isLength({ max: 500 })
     .withMessage("Description must not exceed 500 characters"),
+
+  body("category")
+    .optional({ nullable: true })
+    .isMongoId()
+    .withMessage("Category must be a valid Mongo ID"),
 ];
 
 const updateTodoRules = [
@@ -34,6 +39,16 @@ const updateTodoRules = [
     .optional()
     .isBoolean()
     .withMessage("Completed must be true or false"),
+
+  body("category")
+    .optional({ nullable: true })
+    .isMongoId()
+    .withMessage("Category must be a valid Mongo ID"),
+
+  body("archived")
+    .optional()
+    .isBoolean()
+    .withMessage("Archived must be true or false"),
 ];
 
 const getTodoByIdRules = [param("id").isMongoId().withMessage("Invalid todo ID format")];
@@ -54,10 +69,25 @@ const getAllTodosRules = [
     .isBoolean()
     .withMessage("Completed filter must be true or false"),
 
+  query("search")
+    .optional()
+    .isString()
+    .trim(),
+
+  query("category")
+    .optional()
+    .isMongoId()
+    .withMessage("Category filter must be a valid Mongo ID"),
+
+  query("archived")
+    .optional()
+    .isBoolean()
+    .withMessage("Archived filter must be true or false"),
+
   query("sortBy")
     .optional()
-    .isIn(["createdAt", "title", "completed"])
-    .withMessage("sortBy must be one of: createdAt, title, completed"),
+    .isIn(["createdAt", "created_at", "title", "completed"])
+    .withMessage("sortBy must be one of: createdAt, created_at, title, completed"),
 
   query("order")
     .optional()

@@ -1,4 +1,5 @@
 const swaggerJSDoc = require("swagger-jsdoc");
+console.log('frengki');
 
 const options = {
   definition: {
@@ -12,10 +13,10 @@ const options = {
     },
 
     // PERBAIKAN: Urutan dibalik, URL Vercel ditaruh paling atas agar jadi default
-    servers: [
+   servers: [
       {
-        url: "https://frengki.vercel.app",
-        description: "Production Server (Vercel)",
+        url: "/", // Sangat aman di Vercel, otomatis menyesuaikan domain apa saja (Local maupun Vercel)
+        description: "Current Host / Server",
       },
       {
         url: "http://localhost:3000",
